@@ -2,6 +2,13 @@ import {useState} from 'react';
 import PopUpImage from './PopUpImage';
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
 
+// Simple To Do
+import SimpleToDoTheme from '../../../assets/images/projects/Simple-To-Do/Theme.png';
+import SimpleToDoHomeLight from '../../../assets/images/projects/Simple-To-Do/home-light.png';
+import SimpleToDoHomeDark from '../../../assets/images/projects/Simple-To-Do/home-dark.png';
+import SimpleToDoHomeMySQLDB from '../../../assets/images/projects/Simple-To-Do/mysql-db.png';
+import SimpleToDoHomeTests from '../../../assets/images/projects/Simple-To-Do/tests.png';
+
 // Leave Management System
 // import LeaveManagementTheme from '../../../assets/images/projects/Leave-Management-System/Theme.png';
 import LeaveManagementHome from '../../../assets/images/projects/Leave-Management-System/Home.png';
@@ -190,6 +197,14 @@ import JavaEEPOSItem from '../../../assets/images/projects/JavaEE-POS/Item.png';
 import JavaEEPOSOrders from '../../../assets/images/projects/JavaEE-POS/Orders.png';
 import JavaEEPOSOrderDetails from '../../../assets/images/projects/JavaEE-POS/OrderDetails.png';
 import JavaEEPOSPOSCodes from '../../../assets/images/projects/JavaEE-POS/Codes.png';
+
+const simpleToDoImages = [
+    // SimpleToDoTheme,
+    SimpleToDoHomeDark,
+    SimpleToDoHomeLight,
+    SimpleToDoHomeMySQLDB,
+    SimpleToDoHomeTests,
+];
 
 const leaveManagementImages = [
     // LeaveManagementTheme,
@@ -401,6 +416,8 @@ const javaeePOSImages = [
 export function Projects() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentProject, setCurrentProject] = useState('');
+
+    const [currentSimpleToDoImage, setCurrentSimpleToDoImage] = useState(0);
     const [currentLeaveManagementImage, setCurrentLeaveManagementImage] = useState(0);
     const [currentLaptopHiveImage, setCurrentLaptopHiveImage] = useState(0);
     const [currentGoogleKeepCloneImage, setCurrentGoogleKeepCloneImage] = useState(0);
@@ -433,6 +450,16 @@ export function Projects() {
             <h1 className="text-4xl font-bold text-center text-neonBlue bg-darkBlue">My Projects</h1>
 
             <div className="max-w-7xl px-6 space-y-32 mt-20">
+
+                <ProjectCard projectName="Simple To Do"
+                             description="This Simple To-Do app is a self-initiated full-stack project built to simplify daily task management. I focused on creating a clean, user-friendly, and scalable platform that allows users to efficiently add, view, and complete tasks — showcasing practical full-stack development skills and seamless integration between Laravel, React, and MySQL."
+                             technologies={["React", "Vite", "TypeScript", "Tailwind CSS", "Laravel", "MySQL", "Docker", "Docker Compose"]}
+                             githubLink="https://github.com/Kavithma-Thushal/simple-to-do-coveragex.git"
+                             images={simpleToDoImages}
+                             currentImageIndex={currentSimpleToDoImage}
+                             onNextImage={() => setCurrentSimpleToDoImage((prev) => (prev + 1) % simpleToDoImages.length)}
+                             onPreviousImage={() => setCurrentSimpleToDoImage((prev) => (prev - 1 + simpleToDoImages.length) % simpleToDoImages.length)}
+                             onClickImage={() => openModal('simpleToDo')}/>
 
                 <ProjectCard projectName="Leave Management System"
                              description="This Leave Management System, is a self-initiated full-stack application built to streamline organizational leave management processes. I focused on developing a user-friendly, feature-rich, and scalable platform that showcases essential HR functionalities, including leave applications, approval workflows, secure authentication, and role-based access for employees and administrators."
@@ -638,68 +665,71 @@ export function Projects() {
 
             <PopUpImage isOpen={isModalOpen} onClose={closeModal}
                         imageSrc={
-                            currentProject === 'leaveManagement' ? leaveManagementImages[currentLeaveManagementImage] :
-                                currentProject === 'laptopHive' ? laptopHiveImages[currentLaptopHiveImage] :
-                                    currentProject === 'googleKeepClone' ? googleKeepCloneImages[currentGoogleKeepCloneImage] :
-                                        currentProject === 'laravelPOS' ? laravelPOSImages[currentLaravelPOSImage] :
-                                            currentProject === 'shoeShop' ? shoeShopImages[currentShoeShopImage] :
-                                                currentProject === 'computerShop' ? computerShopImages[currentComputerShopImage] :
-                                                    currentProject === 'hostelManagement' ? hostelManagementImages[currentHostelManagementImage] :
-                                                        currentProject === 'chatApplication' ? chatApplicationImages[currentChatApplicationImage] :
-                                                            currentProject === 'shoeShopLanding' ? shoeShopLandingImages[currentShoeShopLandingImage] :
-                                                                currentProject === 'portfolio' ? portfolioImages[currentPortfolioImage] :
-                                                                    currentProject === 'linkedinClone' ? linkedInCloneImages[currentLinkedinImage] :
-                                                                        currentProject === 'mernPOS' ? mernPOSImages[currentMernPOSImage] :
-                                                                            currentProject === 'connect4' ? connect4Images[currentConnect4Image] :
-                                                                                currentProject === 'portfoliov2' ? portfolioV2Images[currentPortfolioV2Image] :
-                                                                                    currentProject === 'studentCLI' ? studentCLIImages[currentStudentCLIImage] :
-                                                                                        currentProject === 'posFrontend' ? posFrontendImages[currentPOSFrontendImage] :
-                                                                                            currentProject === 'posBackendSpring' ? posBackendSpringImages[currentPOSBackendSpringImage] :
-                                                                                                currentProject === 'posBackendSpringBoot' ? posBackendSpringBootImages[currentPOSBackendSpringBootImage] :
-                                                                                                    currentProject === 'javaeePOS' ? javaeePOSImages[currentJavaEEPOSImage] : ''}
+                            currentProject === 'simpleToDo' ? simpleToDoImages[currentSimpleToDoImage] :
+                                currentProject === 'leaveManagement' ? leaveManagementImages[currentLeaveManagementImage] :
+                                    currentProject === 'laptopHive' ? laptopHiveImages[currentLaptopHiveImage] :
+                                        currentProject === 'googleKeepClone' ? googleKeepCloneImages[currentGoogleKeepCloneImage] :
+                                            currentProject === 'laravelPOS' ? laravelPOSImages[currentLaravelPOSImage] :
+                                                currentProject === 'shoeShop' ? shoeShopImages[currentShoeShopImage] :
+                                                    currentProject === 'computerShop' ? computerShopImages[currentComputerShopImage] :
+                                                        currentProject === 'hostelManagement' ? hostelManagementImages[currentHostelManagementImage] :
+                                                            currentProject === 'chatApplication' ? chatApplicationImages[currentChatApplicationImage] :
+                                                                currentProject === 'shoeShopLanding' ? shoeShopLandingImages[currentShoeShopLandingImage] :
+                                                                    currentProject === 'portfolio' ? portfolioImages[currentPortfolioImage] :
+                                                                        currentProject === 'linkedinClone' ? linkedInCloneImages[currentLinkedinImage] :
+                                                                            currentProject === 'mernPOS' ? mernPOSImages[currentMernPOSImage] :
+                                                                                currentProject === 'connect4' ? connect4Images[currentConnect4Image] :
+                                                                                    currentProject === 'portfoliov2' ? portfolioV2Images[currentPortfolioV2Image] :
+                                                                                        currentProject === 'studentCLI' ? studentCLIImages[currentStudentCLIImage] :
+                                                                                            currentProject === 'posFrontend' ? posFrontendImages[currentPOSFrontendImage] :
+                                                                                                currentProject === 'posBackendSpring' ? posBackendSpringImages[currentPOSBackendSpringImage] :
+                                                                                                    currentProject === 'posBackendSpringBoot' ? posBackendSpringBootImages[currentPOSBackendSpringBootImage] :
+                                                                                                        currentProject === 'javaeePOS' ? javaeePOSImages[currentJavaEEPOSImage] : ''}
 
                         onNext={
-                            currentProject === 'leaveManagement' ? () => setCurrentLeaveManagementImage((prev) => (prev + 1) % leaveManagementImages.length) :
-                                currentProject === 'laptopHive' ? () => setCurrentLaptopHiveImage((prev) => (prev + 1) % laptopHiveImages.length) :
-                                    currentProject === 'googleKeepClone' ? () => setCurrentGoogleKeepCloneImage((prev) => (prev + 1) % googleKeepCloneImages.length) :
-                                        currentProject === 'laravelPOS' ? () => setCurrentLaravelPOSImage((prev) => (prev + 1) % laravelPOSImages.length) :
-                                            currentProject === 'shoeShop' ? () => setCurrentShoeShopImage((prev) => (prev + 1) % shoeShopImages.length) :
-                                                currentProject === 'computerShop' ? () => setCurrentComputerShopImage((prev) => (prev + 1) % computerShopImages.length) :
-                                                    currentProject === 'hostelManagement' ? () => setCurrentHostelManagementImage((prev) => (prev + 1) % hostelManagementImages.length) :
-                                                        currentProject === 'chatApplication' ? () => setCurrentChatApplicationImage((prev) => (prev + 1) % chatApplicationImages.length) :
-                                                            currentProject === 'shoeShopLanding' ? () => setCurrentShoeShopLandingImage((prev) => (prev + 1) % shoeShopLandingImages.length) :
-                                                                currentProject === 'portfolio' ? () => setCurrentPortfolioImage((prev) => (prev + 1) % portfolioImages.length) :
-                                                                    currentProject === 'linkedinClone' ? () => setCurrentLinkedinImage((prev) => (prev + 1) % linkedInCloneImages.length) :
-                                                                        currentProject === 'mernPOS' ? () => setCurrentMernPOSImage((prev) => (prev + 1) % mernPOSImages.length) :
-                                                                            currentProject === 'connect4' ? () => setCurrentConnect4Image((prev) => (prev + 1) % connect4Images.length) :
-                                                                                currentProject === 'portfoliov2' ? () => setCurrentPortfolioV2Image((prev) => (prev + 1) % portfolioV2Images.length) :
-                                                                                    currentProject === 'studentCLI' ? () => setCurrentStudentCLIImage((prev) => (prev + 1) % studentCLIImages.length) :
-                                                                                        currentProject === 'posFrontend' ? () => setCurrentPOSFrontendImage((prev) => (prev + 1) % posFrontendImages.length) :
-                                                                                            currentProject === 'posBackendSpring' ? () => setCurrentPOSBackendSpringImage((prev) => (prev + 1) % posBackendSpringImages.length) :
-                                                                                                currentProject === 'posBackendSpringBoot' ? () => setCurrentPOSBackendSpringBootImage((prev) => (prev + 1) % posBackendSpringBootImages.length) :
-                                                                                                    currentProject === 'javaeePOS' ? () => setCurrentJavaEEPOSImage((prev) => (prev + 1) % javaeePOSImages.length) : () => {
-                                                                                                    }}
+                            currentProject === 'simpleToDo' ? () => setCurrentSimpleToDoImage((prev) => (prev + 1) % simpleToDoImages.length) :
+                                currentProject === 'leaveManagement' ? () => setCurrentLeaveManagementImage((prev) => (prev + 1) % leaveManagementImages.length) :
+                                    currentProject === 'laptopHive' ? () => setCurrentLaptopHiveImage((prev) => (prev + 1) % laptopHiveImages.length) :
+                                        currentProject === 'googleKeepClone' ? () => setCurrentGoogleKeepCloneImage((prev) => (prev + 1) % googleKeepCloneImages.length) :
+                                            currentProject === 'laravelPOS' ? () => setCurrentLaravelPOSImage((prev) => (prev + 1) % laravelPOSImages.length) :
+                                                currentProject === 'shoeShop' ? () => setCurrentShoeShopImage((prev) => (prev + 1) % shoeShopImages.length) :
+                                                    currentProject === 'computerShop' ? () => setCurrentComputerShopImage((prev) => (prev + 1) % computerShopImages.length) :
+                                                        currentProject === 'hostelManagement' ? () => setCurrentHostelManagementImage((prev) => (prev + 1) % hostelManagementImages.length) :
+                                                            currentProject === 'chatApplication' ? () => setCurrentChatApplicationImage((prev) => (prev + 1) % chatApplicationImages.length) :
+                                                                currentProject === 'shoeShopLanding' ? () => setCurrentShoeShopLandingImage((prev) => (prev + 1) % shoeShopLandingImages.length) :
+                                                                    currentProject === 'portfolio' ? () => setCurrentPortfolioImage((prev) => (prev + 1) % portfolioImages.length) :
+                                                                        currentProject === 'linkedinClone' ? () => setCurrentLinkedinImage((prev) => (prev + 1) % linkedInCloneImages.length) :
+                                                                            currentProject === 'mernPOS' ? () => setCurrentMernPOSImage((prev) => (prev + 1) % mernPOSImages.length) :
+                                                                                currentProject === 'connect4' ? () => setCurrentConnect4Image((prev) => (prev + 1) % connect4Images.length) :
+                                                                                    currentProject === 'portfoliov2' ? () => setCurrentPortfolioV2Image((prev) => (prev + 1) % portfolioV2Images.length) :
+                                                                                        currentProject === 'studentCLI' ? () => setCurrentStudentCLIImage((prev) => (prev + 1) % studentCLIImages.length) :
+                                                                                            currentProject === 'posFrontend' ? () => setCurrentPOSFrontendImage((prev) => (prev + 1) % posFrontendImages.length) :
+                                                                                                currentProject === 'posBackendSpring' ? () => setCurrentPOSBackendSpringImage((prev) => (prev + 1) % posBackendSpringImages.length) :
+                                                                                                    currentProject === 'posBackendSpringBoot' ? () => setCurrentPOSBackendSpringBootImage((prev) => (prev + 1) % posBackendSpringBootImages.length) :
+                                                                                                        currentProject === 'javaeePOS' ? () => setCurrentJavaEEPOSImage((prev) => (prev + 1) % javaeePOSImages.length) : () => {
+                                                                                                        }}
 
                         onPrevious={
-                            currentProject === 'leaveManagement' ? () => setCurrentLeaveManagementImage((prev) => (prev - 1 + leaveManagementImages.length) % leaveManagementImages.length) :
-                                currentProject === 'laptopHive' ? () => setCurrentLaptopHiveImage((prev) => (prev - 1 + laptopHiveImages.length) % laptopHiveImages.length) :
-                                    currentProject === 'googleKeepClone' ? () => setCurrentGoogleKeepCloneImage((prev) => (prev - 1 + googleKeepCloneImages.length) % googleKeepCloneImages.length) :
-                                        currentProject === 'laravelPOS' ? () => setCurrentLaravelPOSImage((prev) => (prev - 1 + laravelPOSImages.length) % laravelPOSImages.length) :
-                                            currentProject === 'shoeShop' ? () => setCurrentShoeShopImage((prev) => (prev - 1 + shoeShopImages.length) % shoeShopImages.length) :
-                                                currentProject === 'computerShop' ? () => setCurrentComputerShopImage((prev) => (prev - 1 + computerShopImages.length) % computerShopImages.length) :
-                                                    currentProject === 'hostelManagement' ? () => setCurrentHostelManagementImage((prev) => (prev - 1 + hostelManagementImages.length) % hostelManagementImages.length) :
-                                                        currentProject === 'chatApplication' ? () => setCurrentChatApplicationImage((prev) => (prev - 1 + chatApplicationImages.length) % chatApplicationImages.length) :
-                                                            currentProject === 'shoeShopLanding' ? () => setCurrentShoeShopLandingImage((prev) => (prev - 1 + shoeShopLandingImages.length) % shoeShopLandingImages.length) :
-                                                                currentProject === 'portfolio' ? () => setCurrentPortfolioImage((prev) => (prev - 1 + portfolioImages.length) % portfolioImages.length) :
-                                                                    currentProject === 'linkedinClone' ? () => setCurrentLinkedinImage((prev) => (prev - 1 + linkedInCloneImages.length) % linkedInCloneImages.length) :
-                                                                        currentProject === 'mernPOS' ? () => setCurrentMernPOSImage((prev) => (prev - 1 + mernPOSImages.length) % mernPOSImages.length) :
-                                                                            currentProject === 'connect4' ? () => setCurrentConnect4Image((prev) => (prev - 1 + connect4Images.length) % connect4Images.length) :
-                                                                                currentProject === 'portfoliov2' ? () => setCurrentPortfolioV2Image((prev) => (prev - 1 + portfolioV2Images.length) % portfolioV2Images.length) :
-                                                                                    currentProject === 'studentCLI' ? () => setCurrentStudentCLIImage((prev) => (prev - 1 + studentCLIImages.length) % studentCLIImages.length) :
-                                                                                        currentProject === 'posFrontend' ? () => setCurrentPOSFrontendImage((prev) => (prev - 1 + posFrontendImages.length) % posFrontendImages.length) :
-                                                                                            currentProject === 'posBackendSpring' ? () => setCurrentPOSBackendSpringImage((prev) => (prev - 1 + posBackendSpringImages.length) % posBackendSpringImages.length) :
-                                                                                                currentProject === 'posBackendSpringBoot' ? () => setCurrentPOSBackendSpringBootImage((prev) => (prev - 1 + posBackendSpringBootImages.length) % posBackendSpringBootImages.length) :
-                                                                                                    currentProject === 'javaeePOS' ? () => setCurrentJavaEEPOSImage((prev) => (prev - 1 + javaeePOSImages.length) % javaeePOSImages.length) : () => {
-                                                                                                    }}/></div>
+                            currentProject === 'simpleToDo' ? () => setCurrentSimpleToDoImage((prev) => (prev - 1 + simpleToDoImages.length) % simpleToDoImages.length) :
+                                currentProject === 'leaveManagement' ? () => setCurrentLeaveManagementImage((prev) => (prev - 1 + leaveManagementImages.length) % leaveManagementImages.length) :
+                                    currentProject === 'laptopHive' ? () => setCurrentLaptopHiveImage((prev) => (prev - 1 + laptopHiveImages.length) % laptopHiveImages.length) :
+                                        currentProject === 'googleKeepClone' ? () => setCurrentGoogleKeepCloneImage((prev) => (prev - 1 + googleKeepCloneImages.length) % googleKeepCloneImages.length) :
+                                            currentProject === 'laravelPOS' ? () => setCurrentLaravelPOSImage((prev) => (prev - 1 + laravelPOSImages.length) % laravelPOSImages.length) :
+                                                currentProject === 'shoeShop' ? () => setCurrentShoeShopImage((prev) => (prev - 1 + shoeShopImages.length) % shoeShopImages.length) :
+                                                    currentProject === 'computerShop' ? () => setCurrentComputerShopImage((prev) => (prev - 1 + computerShopImages.length) % computerShopImages.length) :
+                                                        currentProject === 'hostelManagement' ? () => setCurrentHostelManagementImage((prev) => (prev - 1 + hostelManagementImages.length) % hostelManagementImages.length) :
+                                                            currentProject === 'chatApplication' ? () => setCurrentChatApplicationImage((prev) => (prev - 1 + chatApplicationImages.length) % chatApplicationImages.length) :
+                                                                currentProject === 'shoeShopLanding' ? () => setCurrentShoeShopLandingImage((prev) => (prev - 1 + shoeShopLandingImages.length) % shoeShopLandingImages.length) :
+                                                                    currentProject === 'portfolio' ? () => setCurrentPortfolioImage((prev) => (prev - 1 + portfolioImages.length) % portfolioImages.length) :
+                                                                        currentProject === 'linkedinClone' ? () => setCurrentLinkedinImage((prev) => (prev - 1 + linkedInCloneImages.length) % linkedInCloneImages.length) :
+                                                                            currentProject === 'mernPOS' ? () => setCurrentMernPOSImage((prev) => (prev - 1 + mernPOSImages.length) % mernPOSImages.length) :
+                                                                                currentProject === 'connect4' ? () => setCurrentConnect4Image((prev) => (prev - 1 + connect4Images.length) % connect4Images.length) :
+                                                                                    currentProject === 'portfoliov2' ? () => setCurrentPortfolioV2Image((prev) => (prev - 1 + portfolioV2Images.length) % portfolioV2Images.length) :
+                                                                                        currentProject === 'studentCLI' ? () => setCurrentStudentCLIImage((prev) => (prev - 1 + studentCLIImages.length) % studentCLIImages.length) :
+                                                                                            currentProject === 'posFrontend' ? () => setCurrentPOSFrontendImage((prev) => (prev - 1 + posFrontendImages.length) % posFrontendImages.length) :
+                                                                                                currentProject === 'posBackendSpring' ? () => setCurrentPOSBackendSpringImage((prev) => (prev - 1 + posBackendSpringImages.length) % posBackendSpringImages.length) :
+                                                                                                    currentProject === 'posBackendSpringBoot' ? () => setCurrentPOSBackendSpringBootImage((prev) => (prev - 1 + posBackendSpringBootImages.length) % posBackendSpringBootImages.length) :
+                                                                                                        currentProject === 'javaeePOS' ? () => setCurrentJavaEEPOSImage((prev) => (prev - 1 + javaeePOSImages.length) % javaeePOSImages.length) : () => {
+                                                                                                        }}/></div>
     );
 }
