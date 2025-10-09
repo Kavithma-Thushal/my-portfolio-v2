@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import {HashRouter as Router, Routes, Route} from "react-router-dom";
 import {Navbar} from "./views/components/Navbar/Navbar";
 import {Footer} from "./views/components/Footer/Footer";
 import {Home} from "./views/pages/Home/Home";
@@ -13,13 +13,13 @@ export default function App() {
         <Router>
             <Navbar/>
             <Routes>
-                <Route path="/my-portfolio-v2" element={<Home/>}/>
-                <Route path="/my-portfolio-v2/home" element={<Home/>}/>
-                <Route path="/my-portfolio-v2/about" element={<About/>}/>
-                <Route path="/my-portfolio-v2/skills" element={<Skills/>}/>
-                <Route path="/my-portfolio-v2/projects" element={<Projects/>}/>
-                <Route path="/my-portfolio-v2/services" element={<Services/>}/>
-                <Route path="/my-portfolio-v2/contacts" element={<Contacts/>}/>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/home" element={<Home/>}/>
+                <Route path="/about" element={<About/>}/>
+                <Route path="/skills" element={<Skills/>}/>
+                <Route path="/projects" element={<Projects/>}/>
+                <Route path="/services" element={<Services/>}/>
+                <Route path="/contacts" element={<Contacts/>}/>
             </Routes>
             <Footer/>
         </Router>
