@@ -9,7 +9,7 @@ export function About() {
                 <p className="text-base sm:text-lg leading-relaxed">My approach to development is driven by a desire to solve problems
                     creatively and efficiently. I thrive on collaboration, enjoy learning new technologies, and am committed to
                     continuous skill improvement.</p>
-                <a href="/My-Portfolio-V2/projects" className="inline-block bg-neonBlue text-darkBlue px-6 py-3 rounded-lg font-semibold 
+                <a href="/my-portfolio-v2/projects" className="inline-block bg-neonBlue text-darkBlue px-6 py-3 rounded-lg font-semibold
                 shadow-lg transition duration-500 hover:scale-105">View Projects</a>
             </div>
         </div>
