@@ -3,7 +3,7 @@
 Discover a meticulously crafted representation of my professional journey, skills, and achievements in the form of My
 Portfolio V2. This dynamic showcase encapsulates my best work, offering a comprehensive view of my capabilities and
 growth over time. It serves as a powerful tool to communicate my expertise, style, and potential value to prospective
-opportunities
+opportunities.
 
 This isn't just a static collection of achievements—it's a dynamic narrative that evolves with my ongoing progress and
 new endeavors. My portfolio demonstrates dedication, creativity, and a unique perspective within my chosen field.
