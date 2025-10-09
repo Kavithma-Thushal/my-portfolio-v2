@@ -6,7 +6,7 @@
   "private": true,
   "type": "module",
   "description": "Discover My Personal Portfolio Using React",
-  "homepage": "https://Kavithma-Thushal.github.io/My-Portfolio-V2",
+  "homepage": "https://Kavithma-Thushal.github.io/my-portfolio-v2",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
