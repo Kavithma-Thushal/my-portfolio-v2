@@ -4,7 +4,7 @@ export function Home() {
     return (
         <div className="flex items-center justify-center min-h-screen bg-darkBlue text-neonBlue">
             <div className="text-center space-y-6 sm:space-y-8 px-4">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold">Welcome to My Portfolio</h1>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold">Welcome to My Portfolio 2</h1>
                 <p className="text-lg sm:text-xl max-w-xl sm:max-w-2xl mx-auto text-gray-200">Explore my work,
                     learn more about my skills,<br className="hidden sm:block"/>and discover the projects I've been
                     working on.</p>
