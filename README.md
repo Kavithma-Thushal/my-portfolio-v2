@@ -33,11 +33,31 @@ creativity.
 ✅ **Contact Form**: Allow visitors to get in touch with you easily via a contact form.<br/>
 ✅ **Smooth Navigation**: Smooth scrolling and intuitive navigation for seamless user experience.<br/>
 
-## How to Use
+## ▶️ How to use
 
-✅ **To run** - `npm run dev`<br/>
-✅ **To Deploy** -
-`First remove the dist file from project locally and then build (npm run build) the project and then deploy (npm run deploy) the project.`<br/>
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/Kavithma-Thushal/my-portfolio-v2.git
+
+2. Install dependencies:
+    ```bash
+   npm i
+
+3. Run
+    ```bash
+   npm run dev
+
+4. Remove `dist` folder from locally
+
+5. Build
+    ```bash
+   npm run build
+
+6. Deploy
+    ```bash
+   npm run deploy
+
+7. Enjoy it!
 
 ## 📸 Screenshots
 
