@@ -1,4 +1,4 @@
-# 🌟 My Portfolio V2 🌟
+# ⭐ My Portfolio V2 ⭐
 
 Discover a meticulously crafted representation of my professional journey, skills, and achievements in the form of My
 Portfolio V2. This dynamic showcase encapsulates my best work, offering a comprehensive view of my capabilities and
